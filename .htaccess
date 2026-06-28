@@ -1,0 +1,21 @@
+# OnDevice.AI Apache hosting rules.
+Options -MultiViews
+
+<IfModule mod_mime.c>
+  AddType application/json .json
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^api/?$ api/index.json [L]
+  RewriteRule ^blog/?$ blog/index.html [L]
+  RewriteRule ^blog/the-baseline-is-live/?$ blog/the-baseline-is-live/index.html [L]
+  RewriteRule ^blog/the-shortlist-should-feel-short/?$ blog/the-shortlist-should-feel-short/index.html [L]
+  RewriteRule ^blog/the-8-gb-line-choosing-local-ai-that-fits-on-device/?$ blog/the-8-gb-line-choosing-local-ai-that-fits-on-device/index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.json$">
+    Header set Cache-Control "max-age=300, stale-while-revalidate=600"
+  </FilesMatch>
+</IfModule>
