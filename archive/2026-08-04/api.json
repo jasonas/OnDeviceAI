@@ -1,0 +1,315 @@
+{
+  "schema": "https://ondevice.ai/schemas/recommendations.v1.json",
+  "version": "2026-08-04",
+  "status": "complete",
+  "updatedAt": "2026-08-04T15:17:33Z",
+  "updatedAtDisplay": "August 4, 2026, 16:17 BST",
+  "site": {
+    "name": "OnDevice.AI",
+    "domain": "ondevice.ai",
+    "api": "https://ondevice.ai/api",
+    "description": "Current recommendations for open and open-weight AI models that can run comfortably on modern mobile devices with 8 GB of RAM."
+  },
+  "targetDevice": {
+    "ram": "8 GB",
+    "class": "Latest high-end mobile phones",
+    "ruleOfThumb": "Prefer 3B-4.5B effective dense language models in Q4_K_M, dedicated speech models below 1B parameters, and mobile-ready diffusion runtimes. Keep context modest on-device even when a model advertises very long context."
+  },
+  "selectionNotes": [
+    "Filtered broad leaderboards, including Arena, for models that are realistically deployable on an 8 GB phone.",
+    "Favored exact Hugging Face source repos and exact mobile runtime files over unofficial mirrors.",
+    "Q4_K_M is the default recommendation for llama.cpp-compatible text and multimodal models because it is a strong quality-size tradeoff; speech and diffusion models use their native mobile formats instead.",
+    "Kept the shortlist to permissive MIT or Apache-2.0 licenses where possible, including the image-generation pick.",
+    "Model leaderboards are checked daily; August 4, 2026 prompted a deeper written review because several frontier speech and image models moved ahead on quality leaderboards, but the mobile-first recommendations remain unchanged."
+  ],
+  "recommendations": [
+    {
+      "category": "best_text_generation",
+      "categoryLabel": "Best text generation",
+      "rank": 1,
+      "model": {
+        "displayName": "Qwen3.5 4B",
+        "modelId": "Qwen/Qwen3.5-4B",
+        "maker": "Qwen",
+        "parameters": "4.66B",
+        "license": "Apache-2.0"
+      },
+      "why": "Best current Qwen-size balance for daily writing, chat, summarization, instruction following, multilingual text, and tool-style prompts.",
+      "mobileFit": "Excellent. The Q4_K_M GGUF stays in the practical 8 GB phone envelope; use 8K-32K context on mobile rather than the full advertised long context.",
+      "evidence": [
+        "Official model metadata reports 4.66B BF16 parameters and 262,144 native context length.",
+        "Qwen reports strong current 4B-class scores, including MMLU-Pro 79.1, GPQA Diamond 76.2, IFEval 89.8, and LongBench v2 50.0."
+      ],
+      "original": {
+        "format": "Transformers safetensors",
+        "repo": "https://huggingface.co/Qwen/Qwen3.5-4B",
+        "download": "https://huggingface.co/Qwen/Qwen3.5-4B/tree/main"
+      },
+      "runtime": {
+        "format": "GGUF",
+        "recommendedQuantization": "Q4_K_M",
+        "repo": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF",
+        "download": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-Q4_K_M.gguf",
+        "notes": "Use llama.cpp, LM Studio, Ollama-compatible import flows, or a mobile llama.cpp binding; disable thinking for quick instruction-style replies."
+      }
+    },
+    {
+      "category": "best_coding",
+      "categoryLabel": "Best coding",
+      "rank": 1,
+      "model": {
+        "displayName": "Qwen3.5 4B",
+        "modelId": "Qwen/Qwen3.5-4B",
+        "maker": "Qwen",
+        "parameters": "4.66B",
+        "license": "Apache-2.0"
+      },
+      "why": "The strongest small open model in this shortlist for coding tasks, with a newer unified Qwen3.5 base that can run with or without thinking.",
+      "mobileFit": "Good. It fits the same Q4_K_M mobile envelope, but long thinking traces can consume time and context; cap output tokens for mobile apps.",
+      "evidence": [
+        "Qwen reports LiveCodeBench v6 55.8 and OJBench 24.1 for Qwen3.5 4B.",
+        "It also keeps strong instruction and function-style behavior in a compact Apache-2.0 model."
+      ],
+      "original": {
+        "format": "Transformers safetensors",
+        "repo": "https://huggingface.co/Qwen/Qwen3.5-4B",
+        "download": "https://huggingface.co/Qwen/Qwen3.5-4B/tree/main"
+      },
+      "runtime": {
+        "format": "GGUF",
+        "recommendedQuantization": "Q4_K_M",
+        "repo": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF",
+        "download": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-Q4_K_M.gguf",
+        "notes": "Keep context and max output bounded on phones; enable thinking only when latency is acceptable."
+      }
+    },
+    {
+      "category": "best_reasoning",
+      "categoryLabel": "Best reasoning",
+      "rank": 1,
+      "model": {
+        "displayName": "Qwen3.5 4B",
+        "modelId": "Qwen/Qwen3.5-4B",
+        "maker": "Qwen",
+        "parameters": "4.66B",
+        "license": "Apache-2.0"
+      },
+      "why": "A compact current-generation reasoning pick with unusually high small-model math, logic, and coding benchmark scores.",
+      "mobileFit": "Good for deliberate answers. It is not the fastest mode, but it is the best reasoning pick that still fits the 8 GB phone target.",
+      "evidence": [
+        "Qwen reports GPQA Diamond 76.2, HMMT Feb 2025 74.0, and HMMT Nov 2025 76.8 for Qwen3.5 4B.",
+        "The model supports thinking by default and can be configured for non-thinking responses when latency matters."
+      ],
+      "original": {
+        "format": "Transformers safetensors",
+        "repo": "https://huggingface.co/Qwen/Qwen3.5-4B",
+        "download": "https://huggingface.co/Qwen/Qwen3.5-4B/tree/main"
+      },
+      "runtime": {
+        "format": "GGUF",
+        "recommendedQuantization": "Q4_K_M",
+        "repo": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF",
+        "download": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/Qwen3.5-4B-Q4_K_M.gguf",
+        "notes": "Use thinking mode for deliberate answers; expose a fast non-thinking mode for quick UX."
+      }
+    },
+    {
+      "category": "best_image_generation",
+      "categoryLabel": "Best image generation",
+      "rank": 1,
+      "model": {
+        "displayName": "LCM Dreamshaper v7",
+        "modelId": "SimianLuo/LCM_Dreamshaper_v7",
+        "maker": "Simian Luo",
+        "parameters": "SD 1.5-class latent consistency pipeline",
+        "license": "MIT"
+      },
+      "why": "Best permissively licensed mobile-class image generation pick: fast few-step generation, MIT license, and a smaller SD 1.5-class footprint.",
+      "mobileFit": "Good with ONNX, Core ML conversion, or platform-specific diffusion runtimes. GGUF is not the right format for diffusion models.",
+      "evidence": [
+        "Hugging Face lists LCM Dreamshaper v7 as an MIT-licensed Diffusers text-to-image model.",
+        "The repo includes ONNX assets for the text encoder, UNet, VAE encoder, and VAE decoder, making it a practical mobile runtime target.",
+        "It trails SD Turbo on quality and prompt following, but avoids the non-commercial SAI license."
+      ],
+      "original": {
+        "format": "Diffusers safetensors",
+        "repo": "https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7",
+        "download": "https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7/resolve/main/LCM_Dreamshaper_v7_4k.safetensors"
+      },
+      "runtime": {
+        "format": "ONNX / Core ML / Diffusers",
+        "recommendedQuantization": "N/A",
+        "repo": "https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7",
+        "download": "https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7/tree/main",
+        "companionFiles": [
+          "https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7/resolve/main/unet/model.onnx",
+          "https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7/resolve/main/vae_decoder/model.onnx",
+          "https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7/resolve/main/text_encoder/model.onnx"
+        ],
+        "notes": "Use 4-step LCM-style generation for mobile UX; do not look for Q4_K_M GGUF for this category."
+      }
+    },
+    {
+      "category": "best_speech_to_text",
+      "categoryLabel": "Best speech-to-text",
+      "rank": 1,
+      "model": {
+        "displayName": "Whisper Large V3 Turbo",
+        "modelId": "openai/whisper-large-v3-turbo",
+        "maker": "OpenAI",
+        "parameters": "809M",
+        "license": "MIT"
+      },
+      "why": "Best dedicated open ASR choice for quality, language coverage, and mobile deployability after quantization.",
+      "mobileFit": "Good. Use whisper.cpp q5_0 or a Core ML encoder package for phone deployment.",
+      "evidence": [
+        "Hugging Face lists the model under automatic-speech-recognition with MIT license and around 809M parameters.",
+        "The whisper.cpp repo provides ggml-large-v3-turbo q5_0 and Core ML encoder artifacts."
+      ],
+      "original": {
+        "format": "Transformers safetensors",
+        "repo": "https://huggingface.co/openai/whisper-large-v3-turbo",
+        "download": "https://huggingface.co/openai/whisper-large-v3-turbo/resolve/main/model.safetensors"
+      },
+      "runtime": {
+        "format": "whisper.cpp GGML",
+        "recommendedQuantization": "q5_0",
+        "repo": "https://huggingface.co/ggerganov/whisper.cpp",
+        "download": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3-turbo-q5_0.bin",
+        "companionFiles": [
+          "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3-turbo-encoder.mlmodelc.zip"
+        ],
+        "notes": "Whisper uses GGML/whisper.cpp formats rather than GGUF."
+      }
+    },
+    {
+      "category": "best_text_to_speech",
+      "categoryLabel": "Best text-to-speech",
+      "rank": 1,
+      "model": {
+        "displayName": "Kokoro 82M",
+        "modelId": "hexgrad/Kokoro-82M",
+        "maker": "hexgrad",
+        "parameters": "82M",
+        "license": "Apache-2.0"
+      },
+      "why": "Very small, popular, high-quality open TTS with broad community runtime support and many voice files.",
+      "mobileFit": "Excellent. The ONNX q4/q8 variants are tiny compared with LLMs and are a better mobile target than GGUF.",
+      "evidence": [
+        "Hugging Face lists Kokoro 82M as Apache-2.0 text-to-speech with very high downloads and likes.",
+        "The ONNX community conversion includes model_q4.onnx, model_q8f16.onnx, and voice binaries."
+      ],
+      "original": {
+        "format": "PyTorch checkpoint",
+        "repo": "https://huggingface.co/hexgrad/Kokoro-82M",
+        "download": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/main/kokoro-v1_0.pth"
+      },
+      "runtime": {
+        "format": "ONNX",
+        "recommendedQuantization": "model_q4.onnx or model_q8f16.onnx",
+        "repo": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX",
+        "download": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main/onnx/model_q4.onnx",
+        "companionFiles": [
+          "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main/voices/af_heart.bin"
+        ],
+        "notes": "Pick a voice binary alongside the ONNX model."
+      }
+    },
+    {
+      "category": "best_photo_analyzer",
+      "categoryLabel": "Best photo analyzer",
+      "rank": 1,
+      "model": {
+        "displayName": "Gemma 4 E4B Instruct",
+        "modelId": "google/gemma-4-E4B-it",
+        "maker": "Google DeepMind",
+        "parameters": "4.5B effective / 8B total with embeddings",
+        "license": "Apache-2.0"
+      },
+      "why": "Best verified small multimodal model for image understanding, OCR-like tasks, charts, screenshots, and general photo analysis.",
+      "mobileFit": "Good on high-end phones with Q4_K_M. Vision requires the GGUF model plus an mmproj file, and lower visual token budgets improve speed.",
+      "evidence": [
+        "Gemma 4 E4B is documented as targeting high-end phones, with text, image, and audio inputs and 128K context.",
+        "Google reports MMMU Pro 52.6, MATH-Vision 59.5, OmniDocBench 0.181, and MMMLU 76.6 for the E4B instruction-tuned model."
+      ],
+      "original": {
+        "format": "Transformers safetensors",
+        "repo": "https://huggingface.co/google/gemma-4-E4B-it",
+        "download": "https://huggingface.co/google/gemma-4-E4B-it/tree/main"
+      },
+      "runtime": {
+        "format": "GGUF + mmproj",
+        "recommendedQuantization": "Q4_K_M",
+        "repo": "https://huggingface.co/bartowski/google_gemma-4-E4B-it-GGUF",
+        "download": "https://huggingface.co/bartowski/google_gemma-4-E4B-it-GGUF/resolve/main/google_gemma-4-E4B-it-Q4_K_M.gguf",
+        "companionFiles": [
+          "https://huggingface.co/bartowski/google_gemma-4-E4B-it-GGUF/resolve/main/mmproj-google_gemma-4-E4B-it-f16.gguf"
+        ],
+        "notes": "Use the mmproj file for image input in llama.cpp-style runtimes."
+      }
+    },
+    {
+      "category": "best_overall",
+      "categoryLabel": "Best overall",
+      "rank": 1,
+      "model": {
+        "displayName": "Gemma 4 E4B Instruct",
+        "modelId": "google/gemma-4-E4B-it",
+        "maker": "Google DeepMind",
+        "parameters": "4.5B effective / 8B total with embeddings",
+        "license": "Apache-2.0"
+      },
+      "why": "Best all-around on-device choice because it covers text, reasoning, coding, images, and short audio input in one mobile-targeted model.",
+      "mobileFit": "Good for flagship 8 GB phones when quantized; choose Qwen3.5 4B if your app is text-only and needs stronger writing, coding, or reasoning.",
+      "evidence": [
+        "Gemma 4 E4B is explicitly positioned for mobile and edge deployment.",
+        "Google reports E4B benchmark strength across text, coding, reasoning, vision, audio, and multilingual tasks."
+      ],
+      "original": {
+        "format": "Transformers safetensors",
+        "repo": "https://huggingface.co/google/gemma-4-E4B-it",
+        "download": "https://huggingface.co/google/gemma-4-E4B-it/tree/main"
+      },
+      "runtime": {
+        "format": "GGUF + mmproj",
+        "recommendedQuantization": "Q4_K_M",
+        "repo": "https://huggingface.co/bartowski/google_gemma-4-E4B-it-GGUF",
+        "download": "https://huggingface.co/bartowski/google_gemma-4-E4B-it-GGUF/resolve/main/google_gemma-4-E4B-it-Q4_K_M.gguf",
+        "companionFiles": [
+          "https://huggingface.co/bartowski/google_gemma-4-E4B-it-GGUF/resolve/main/mmproj-google_gemma-4-E4B-it-f16.gguf"
+        ],
+        "notes": "This is the general default when one model must cover multiple on-device experiences."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Arena leaderboard",
+      "url": "https://arena.ai/leaderboard/"
+    },
+    {
+      "label": "Hugging Face Models",
+      "url": "https://huggingface.co/models"
+    },
+    {
+      "label": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/"
+    }
+  ],
+  "history": [
+    {
+      "version": "2026-08-04",
+      "updatedAt": "2026-08-04T15:17:33Z",
+      "html": "/archive/2026-08-04/",
+      "api": "/archive/2026-08-04/api.json",
+      "notes": "Daily leaderboard monitoring continued; deeper August 4 review completed with recommendations unchanged after mobile, license, and runtime filters."
+    },
+    {
+      "version": "2026-06-28",
+      "updatedAt": "2026-06-28T21:49:20Z",
+      "html": "/archive/2026-06-28/",
+      "api": "/archive/2026-06-28/api.json",
+      "notes": "First complete OnDevice.AI shortlist for 8 GB mobile devices."
+    }
+  ]
+}

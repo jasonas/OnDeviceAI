@@ -1,9 +1,9 @@
 {
   "schema": "https://ondevice.ai/schemas/recommendations.v1.json",
-  "version": "2026-06-28",
+  "version": "2026-08-04",
   "status": "complete",
-  "updatedAt": "2026-06-28T21:49:20Z",
-  "updatedAtDisplay": "June 28, 2026, 22:49 BST",
+  "updatedAt": "2026-08-04T15:17:33Z",
+  "updatedAtDisplay": "August 4, 2026, 16:17 BST",
   "site": {
     "name": "OnDevice.AI",
     "domain": "ondevice.ai",
@@ -19,7 +19,8 @@
     "Filtered broad leaderboards, including Arena, for models that are realistically deployable on an 8 GB phone.",
     "Favored exact Hugging Face source repos and exact mobile runtime files over unofficial mirrors.",
     "Q4_K_M is the default recommendation for llama.cpp-compatible text and multimodal models because it is a strong quality-size tradeoff; speech and diffusion models use their native mobile formats instead.",
-    "Kept the shortlist to permissive MIT or Apache-2.0 licenses where possible, including the image-generation pick."
+    "Kept the shortlist to permissive MIT or Apache-2.0 licenses where possible, including the image-generation pick.",
+    "Model leaderboards are checked daily; August 4, 2026 prompted a deeper written review because several frontier speech and image models moved ahead on quality leaderboards, but the mobile-first recommendations remain unchanged."
   ],
   "recommendations": [
     {
@@ -289,9 +290,20 @@
     {
       "label": "Hugging Face Models",
       "url": "https://huggingface.co/models"
+    },
+    {
+      "label": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/"
     }
   ],
   "history": [
+    {
+      "version": "2026-08-04",
+      "updatedAt": "2026-08-04T15:17:33Z",
+      "html": "/archive/2026-08-04/",
+      "api": "/archive/2026-08-04/api.json",
+      "notes": "Daily leaderboard monitoring continued; deeper August 4 review completed with recommendations unchanged after mobile, license, and runtime filters."
+    },
     {
       "version": "2026-06-28",
       "updatedAt": "2026-06-28T21:49:20Z",

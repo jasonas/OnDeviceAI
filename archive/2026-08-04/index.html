@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OnDevice.AI Snapshot - August 4, 2026</title>
+  <meta name="description" content="The August 4, 2026 OnDevice.AI leaderboard review snapshot with unchanged mobile model recommendations.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem("ondevice-theme");
+        var preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", storedTheme || preferredTheme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../styles.css?rev=release-1">
+</head>
+<body data-api-source="api.json" data-preserve-title="true">
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+          <circle cx="12" cy="12" r="2.5"></circle>
+          <path d="M9 2.5V6"></path>
+          <path d="M15 2.5V6"></path>
+          <path d="M9 18v3.5"></path>
+          <path d="M15 18v3.5"></path>
+          <path d="M2.5 9H6"></path>
+          <path d="M2.5 15H6"></path>
+          <path d="M18 9h3.5"></path>
+          <path d="M18 15h3.5"></path>
+        </svg>
+        <span>OnDevice.AI</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/">Current</a>
+        <a href="/blog/">Blog</a>
+        <a href="api.json">Snapshot API</a>
+        <a href="#history">History</a>
+      </div>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path>
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M4.9 4.9l1.4 1.4"></path>
+            <path d="M17.7 17.7l1.4 1.4"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M4.9 19.1l1.4-1.4"></path>
+            <path d="M17.7 6.3l1.4-1.4"></path>
+          </svg>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <svg class="menu-icon menu-icon-open" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+          <svg class="menu-icon menu-icon-close" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12"></path>
+            <path d="M18 6L6 18"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <section class="hero archive-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Archived snapshot</p>
+        <h1 id="page-title">OnDevice.AI's August 4 review</h1>
+        <p class="hero-text">
+          A frozen copy of the deeper leaderboard review that kept the mobile
+          shortlist unchanged after daily monitoring.
+        </p>
+        <div class="hero-actions">
+          <a class="action primary" href="api.json">Snapshot API</a>
+          <a class="action secondary" href="/">Current page</a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="status-band" aria-label="Archived update status">
+      <div>
+        <span class="meta-label">Snapshot version</span>
+        <strong id="version">Loading</strong>
+      </div>
+      <div>
+        <span class="meta-label">Archived update</span>
+        <strong id="updated-at">Loading</strong>
+      </div>
+      <div>
+        <span class="meta-label">Target device</span>
+        <strong id="target-device">8 GB mobile</strong>
+      </div>
+    </section>
+
+    <section class="intro-grid" aria-label="Selection summary">
+      <div>
+        <h2>Archived mobile-first filtering</h2>
+        <p id="site-description">
+          We are loading this archived model set from the snapshot API.
+        </p>
+      </div>
+      <div class="api-callout">
+        <span class="meta-label">Snapshot JSON</span>
+        <a href="api.json">archive/2026-08-04/api.json</a>
+        <p>This page is intentionally frozen for comparison with newer updates.</p>
+      </div>
+    </section>
+
+    <section class="section-heading" id="models">
+      <div>
+        <h2>Archived Picks</h2>
+        <p>Best-in-category models after the August 4 leaderboard review.</p>
+      </div>
+    </section>
+
+    <section class="model-grid" id="model-grid" aria-live="polite"></section>
+
+    <section class="info-section" aria-labelledby="method-title">
+      <h2 id="method-title">Selection Notes</h2>
+      <ul id="selection-notes"></ul>
+    </section>
+
+    <section class="info-section" id="history" aria-labelledby="history-title">
+      <h2 id="history-title">Update History</h2>
+      <p>Historical links captured in this snapshot.</p>
+      <div class="history-list" id="history-list"></div>
+    </section>
+
+    <section class="info-section" aria-labelledby="sources-title">
+      <h2 id="sources-title">Sources</h2>
+      <div class="source-list" id="source-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="footer-updated">Archived OnDevice.AI recommendations are loading.</p>
+    <p class="footer-links">
+      <a href="https://github.com/jasonas/OnDeviceAI" target="_blank" rel="noopener">GitHub repository</a>
+      <a href="https://x.com/jasonio" target="_blank" rel="noopener">@jasonio</a>
+    </p>
+  </footer>
+
+  <script src="../../script.js?rev=release-1"></script>
+</body>
+</html>
