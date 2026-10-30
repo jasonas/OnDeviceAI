@@ -9,6 +9,7 @@ Options -MultiViews
   RewriteEngine On
   RewriteRule ^api/?$ api/index.json [L]
   RewriteRule ^blog/?$ blog/index.html [L]
+  RewriteRule ^blog/room-to-think-a-new-default-for-8-gb-phones/?$ blog/room-to-think-a-new-default-for-8-gb-phones/index.html [L]
   RewriteRule ^blog/the-leaderboards-moved-the-phone-did-not/?$ blog/the-leaderboards-moved-the-phone-did-not/index.html [L]
   RewriteRule ^blog/the-baseline-is-live/?$ blog/the-baseline-is-live/index.html [L]
   RewriteRule ^blog/the-shortlist-should-feel-short/?$ blog/the-shortlist-should-feel-short/index.html [L]

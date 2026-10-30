@@ -41,6 +41,12 @@ https://ondevice.ai/api
 The source payload is stored at [`api/index.json`](api/index.json). Apache
 rewrites `/api` to that file and serves it as `application/json`.
 
+The optional `review` object records the review method and related blog post.
+Recommendations may include `reviewStatus`, `licenseNotes`, and
+`evidenceSources`. A provisional recommendation is not verified against all
+selection criteria; consumers should surface its qualification. Download
+sizes and published benchmark scores are not measurements of phone RAM or speed.
+
 ## Releases
 
 Each meaningful recommendation release should update:

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room to Think: A New Default for 8 GB Phones</title>
+  <meta name="description" content="The October 30, 2026 OnDevice.AI update moves photo analysis and best overall to Qwen3.5 4B, explains the memory tradeoff, and corrects an image-model licensing claim.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem("ondevice-theme");
+        var preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", storedTheme || preferredTheme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/styles.css?rev=release-1">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+          <circle cx="12" cy="12" r="2.5"></circle>
+          <path d="M9 2.5V6"></path>
+          <path d="M15 2.5V6"></path>
+          <path d="M9 18v3.5"></path>
+          <path d="M15 18v3.5"></path>
+          <path d="M2.5 9H6"></path>
+          <path d="M2.5 15H6"></path>
+          <path d="M18 9h3.5"></path>
+          <path d="M18 15h3.5"></path>
+        </svg>
+        <span>OnDevice.AI</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#models">Models</a>
+        <a href="/blog/">Blog</a>
+        <a href="/api">API</a>
+        <a href="/#history">History</a>
+      </div>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"></path>
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M4.9 4.9l1.4 1.4"></path>
+            <path d="M17.7 17.7l1.4 1.4"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M4.9 19.1l1.4-1.4"></path>
+            <path d="M17.7 6.3l1.4-1.4"></path>
+          </svg>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <svg class="menu-icon menu-icon-open" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+          <svg class="menu-icon menu-icon-close" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12"></path>
+            <path d="M18 6L6 18"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <section class="hero post-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">October shortlist update</p>
+        <p class="post-meta"><time datetime="2026-10-30">October 30, 2026</time></p>
+        <h1 id="page-title">Room to Think: A New Default for 8 GB Phones</h1>
+        <p class="post-deck">
+          Qwen3.5 4B becomes our photo-analysis and overall pick. A closer look
+          at memory, vision results, and licensing explains why.
+        </p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <article class="article-body">
+      <p>
+        Daily leaderboard checks continue at OnDevice.AI. On October 30, 2026,
+        we took another deeper look at the eight categories, including the
+        original model cards, licenses, and actual runtime downloads. This
+        time the shortlist changes: Qwen3.5 4B replaces Gemma 4 E4B Instruct
+        for photo analysis and best overall. The release also qualifies our
+        image-generation recommendation and records several serious challengers
+        for future comparisons.
+      </p>
+
+      <p>
+        Our standard remains offline, private use on a phone with 8 GB of RAM.
+        Arena and Artificial Analysis provide useful quality signals, but
+        their rankings do not certify mobile memory use or sustained speed.
+        This update is a review of published evidence, not a new set of
+        physical-phone benchmarks. That distinction matters when interpreting
+        both the changes and the recommendations we retain.
+      </p>
+
+      <h2>The whole download matters</h2>
+      <p>
+        The <a href="https://huggingface.co/bartowski/google_gemma-4-E4B-it-GGUF/tree/main" target="_blank" rel="noopener">Gemma package we previously linked</a>
+        contains a roughly 5.41 GB Q4_K_M file and a 990 MB multimodal
+        projector. The <a href="https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/tree/main" target="_blank" rel="noopener">Qwen package</a>
+        contains a roughly 2.74 GB Q4_K_M file and a 672 MB F16 projector.
+        Together, those are about 6.40 GB and 3.41 GB of downloads respectively.
+        The smaller package gives Qwen a more promising starting point for
+        our memory budget.
+      </p>
+
+      <p>
+        File size is not peak RAM. The operating system, application, context
+        cache, image processing, and inference buffers all need space, while
+        loading and offloading strategies vary between runtimes. An effective
+        parameter count also does not describe every weight a download
+        contains. Our default advice now starts at 4K-8K context, with larger
+        contexts earned through measurements on the intended phone. Long
+        advertised context windows are capabilities, not mobile settings.
+      </p>
+
+      <h2>Why photo analysis moves to Qwen</h2>
+      <p>
+        <a href="https://huggingface.co/Qwen/Qwen3.5-4B" target="_blank" rel="noopener">Qwen3.5 4B</a>
+        accepts images as well as text. Its developer reports 66.3 on
+        MMMU-Pro and 74.6 on MathVision, while
+        <a href="https://huggingface.co/google/gemma-4-E4B-it/raw/main/README.md" target="_blank" rel="noopener">Google reports</a>
+        52.6 and 59.5 for Gemma E4B. These results support reconsidering our
+        previous winner. They are separate developers' evaluations, however,
+        and do not establish the quality of either phone quantization in a
+        controlled comparison. The recommendation combines that quality
+        signal with the smaller runtime package.
+      </p>
+
+      <p>
+        The same balance makes Qwen our overall default across text, coding,
+        reasoning, and images. Gemma still offers a meaningful advantage for
+        projects requiring native audio input; Qwen does not replace that
+        capability. Voice applications can instead combine our overall pick
+        with dedicated speech models, loading components as needed. The
+        matching vision projector is only required when using images.
+      </p>
+
+      <h2>Coding has a credible challenger</h2>
+      <p>
+        Qwen remains our text, coding, and broad-reasoning pick, but coding is
+        now a close review priority.
+        <a href="https://huggingface.co/openbmb/MiniCPM5-2B" target="_blank" rel="noopener">MiniCPM5-2B</a>
+        has an Apache-2.0 license and an
+        <a href="https://huggingface.co/openbmb/MiniCPM5-2B-GGUF/tree/main" target="_blank" rel="noopener">official Q4_K_M download</a>
+        around 1.56 GB. OpenBMB reports LiveCodeBench v6 scores of 69.1 for
+        MiniCPM and 56.4 for Qwen in its comparison. Qwen leads on other
+        measures in that table, including general knowledge and GPQA.
+      </p>
+
+      <p>
+        That evidence warrants a direct trial rather than an automatic swap
+        across several categories. Useful mobile coding involves edit quality,
+        instruction following, response time, and how much thinking output
+        the task needs. We retain Qwen while recording MiniCPM as a leading
+        comparison candidate. A higher server benchmark score alone does not
+        tell us which quantized model will deliver the better phone experience.
+      </p>
+
+      <h2>Speech defaults stay, with alternatives</h2>
+      <p>
+        <a href="https://huggingface.co/openai/whisper-large-v3-turbo" target="_blank" rel="noopener">Whisper Large V3 Turbo</a>
+        stays for broad multilingual transcription and mature quantized
+        deployment. For English live dictation,
+        <a href="https://github.com/moonshine-ai/moonshine/blob/main/docs/models/available-models.md" target="_blank" rel="noopener">Moonshine Medium Streaming</a>
+        deserves comparison: it has 245M parameters and an MIT license.
+        <a href="https://huggingface.co/hexgrad/Kokoro-82M" target="_blank" rel="noopener">Kokoro 82M</a>
+        remains our lightweight speech-output default. Newer options such as
+        <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener">Pocket TTS</a>
+        bring streaming, cloning, and very small October English checkpoints.
+        Listening tests, language needs, and device latency should guide any
+        eventual replacement.
+      </p>
+
+      <h2>A correction on image licensing</h2>
+      <p>
+        Our earlier description of
+        <a href="https://huggingface.co/SimianLuo/LCM_Dreamshaper_v7" target="_blank" rel="noopener">LCM Dreamshaper v7</a>
+        was too confident about a pure MIT license. Its repository is tagged
+        MIT, but it explicitly identifies
+        <a href="https://huggingface.co/Lykon/dreamshaper-7" target="_blank" rel="noopener">Dreamshaper v7</a>
+        as its distillation source, and that upstream repository lists
+        CreativeML OpenRAIL-M. The tag alone does not verify that the whole
+        pipeline meets a strict MIT/Apache-only requirement. We now mark the
+        image pick provisional and expose the qualification on its card and
+        in the API. Projects with that requirement should wait for clarification
+        or choose a separately verified pipeline.
+      </p>
+
+      <p>
+        <a href="https://huggingface.co/prism-ml/bonsai-image-ternary-4B-mlx-2bit" target="_blank" rel="noopener">Bonsai Image Ternary 4B</a>
+        is an Apache-2.0 candidate with compressed weights and published
+        iPhone results. Those phone measurements used 12 GB of RAM, so they
+        do not establish comfortable operation on our 8 GB target. We also
+        correct our earlier blanket advice about image formats:
+        <a href="https://github.com/leejet/stable-diffusion.cpp" target="_blank" rel="noopener">stable-diffusion.cpp supports diffusion GGUF</a>.
+        A compatible diffusion runtime is essential; an LLM loader is not
+        interchangeable with it.
+      </p>
+
+      <p>
+        The <a href="/archive/2026-10-30/">October snapshot</a> and its
+        <a href="/archive/2026-10-30/api.json">JSON record</a> preserve these
+        decisions, alongside the older releases. Two winners change today,
+        and one recommendation gains an important qualification. Daily checks
+        continue, with future releases tied to evidence that improves the
+        practical answer for the phone in your hand.
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <p><a href="/blog/">Back to blog</a></p>
+    <p class="footer-links">
+      <a href="https://github.com/jasonas/OnDeviceAI" target="_blank" rel="noopener">GitHub repository</a>
+      <a href="https://x.com/jasonio" target="_blank" rel="noopener">@jasonio</a>
+    </p>
+  </footer>
+
+  <script src="/script.js?rev=release-1"></script>
+</body>
+</html>
